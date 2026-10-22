@@ -93,6 +93,15 @@ short version: you need **one** model provider key to start — `GEMINI_API_KEY`
 (free Developer tier); Phoenix and Langfuse are self-hosted and need no key
 at all.
 
+Paste keys with the helper rather than an editor — it prints the length, so
+a truncated paste is visible immediately instead of surfacing later as an
+opaque 403:
+
+```sh
+scripts/set-key.sh GEMINI_API_KEY
+scripts/set-key.sh LANGSMITH_API_KEY
+```
+
 The reason there are several providers rather than one: **the judge should
 not be the same model as the generator.** Self-preference bias inflates
 scores, and being able to point the judge at a different provider is the
