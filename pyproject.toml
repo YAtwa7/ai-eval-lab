@@ -1,0 +1,22 @@
+[project]
+name = "ai-eval-lab"
+version = "0.1.0"
+description = "AI Eval QA lab: golden datasets, LLM-as-judge, RAGAS/DeepEval, red-teaming, bilingual EN/AR eval, CI eval gates."
+requires-python = ">=3.13"
+
+[tool.ruff]
+line-length = 100
+target-version = "py313"
+exclude = [".venv", "labs/*/reference", "evals/reports"]
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "UP", "B", "SIM"]
+ignore = ["E501"]
+
+[tool.pytest.ini_options]
+testpaths = ["apps", "evals", "labs"]
+markers = [
+  "requires_provider: needs a live model provider API key",
+  "requires_target: needs a live service running",
+  "slow: takes more than a few seconds",
+]
