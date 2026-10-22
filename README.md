@@ -106,6 +106,7 @@ program is the $99 LangChain Certified Agent Engineer exam.
 | [`CURRICULUM.md`](CURRICULUM.md) | Courses, sessions, labs, and their checkboxes |
 | [`docs/SESSION-PROMPT.md`](docs/SESSION-PROMPT.md) | The bootstrap for every new session chat |
 | [`docs/STUDY-PROTOCOL.md`](docs/STUDY-PROTOCOL.md) | The whole program in one paste-able block — hand this to a cold chat |
+| [`docs/PROTOCOL-TEMPLATE.md`](docs/PROTOCOL-TEMPLATE.md) | Blank template to adopt the same method in **another** project |
 | [`docs/sessions/README.md`](docs/sessions/README.md) | The handoff template and session index |
 | [`docs/COURSE-MAP.md`](docs/COURSE-MAP.md) | The three courses, verified links, certificate mechanics |
 | [`docs/EVAL-STRATEGY.md`](docs/EVAL-STRATEGY.md) | How to choose a metric, set a threshold, design a judge |

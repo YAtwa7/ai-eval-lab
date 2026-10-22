@@ -52,6 +52,7 @@ This repo is a **study lab**: one chat per session, state in the repo.
 | Reviewer brief (criteria) | `docs/PROVER.md` |
 | Session protocol + paste-in bootstrap | `docs/SESSION-PROMPT.md` |
 | The whole program in one paste-able block | `docs/STUDY-PROTOCOL.md` |
+| Blank template to adopt this method in another project | `docs/PROTOCOL-TEMPLATE.md` |
 | Session handoff template | `docs/sessions/README.md` |
 | Versioning rule | `docs/versioning-convention.md` |
 | Release history | `CHANGELOG.md` (+ git tags `vX.Y.Z`) |
