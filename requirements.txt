@@ -1,23 +1,26 @@
-# Eval lab dependencies. All pinned to exact versions and all declare
-# Python 3.13 support (checked against PyPI on 2026-10-22).
+# Eval lab dependencies. Exact pins, and every one of them was actually
+# resolved together in a clean venv - see the note at the bottom.
 #
 # Install:  python3 -m venv .venv && .venv/bin/pip install -r requirements.txt
+#
+# Python 3.13.
 
 # --- core ---
 fastapi==0.159.1
-uvicorn==0.40.0
-pydantic==2.12.4
+uvicorn==0.54.0
+pydantic==2.14.1
 httpx==0.28.1
-python-dotenv==1.2.1
-pyyaml==6.0.3
+python-dotenv==1.2.4
+PyYAML==6.0.3
+certifi==2026.10.19
 
 # --- eval frameworks ---
 ragas==0.4.3
 deepeval==4.3.1
-arize-phoenix==20.24.0
+arize-phoenix==20.19.0
 
 # --- providers ---
-openai==3.36.1
+openai==3.3.0
 google-genai==2.32.0
 
 # --- observability ---
@@ -26,5 +29,16 @@ langgraph==1.2.16
 
 # --- test + lint ---
 pytest==9.1.1
-pytest-asyncio==1.3.0
-ruff==0.15.1
+pytest-asyncio==1.4.0
+ruff==0.17.1
+
+# --- transitive pins that matter -------------------------------------------
+# langchain-community 0.4.x REMOVED langchain_community.chat_models.vertexai,
+# which ragas 0.4.3 imports at module load. With 0.4.2 installed, `import
+# ragas` raises ModuleNotFoundError. 0.3.31 is the last version that still
+# ships the module, and it is pinned here on purpose.
+#
+# Do not "upgrade" this line without checking that `import ragas` still works
+# in a clean venv. A version bump that breaks one import is exactly the
+# failure this repo's own conventions are designed to catch.
+langchain-community==0.3.31

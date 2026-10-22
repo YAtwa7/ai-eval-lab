@@ -18,8 +18,8 @@
 #   scripts/set-key.sh LANGSMITH_API_KEY
 #
 # Expected shapes:
-#   GEMINI_API_KEY     AIza...            typically 39 chars
-#   LANGSMITH_API_KEY  lsv2_pt_<32>_<32>  typically 72 chars
+#   GEMINI_API_KEY     "AQ." (new Google Cloud format) or "AIza" (legacy)
+#   LANGSMITH_API_KEY  lsv2_pt_... (~51 chars is normal)
 #
 # The key is never printed, never logged, and never committed: it lands in
 # .env.local, which is gitignored.
@@ -42,8 +42,13 @@ if [ ! -f "$ENV_FILE" ]; then
   exit 1
 fi
 
-if ! grep -q "^${VAR}=" "$ENV_FILE"; then
-  echo "error: $VAR is not a key in .env.example" >&2
+# Only a real config line counts. A commented-out example line is not a
+# target: writing a key into one leaves it looking configured while the
+# harness still reads an empty value. That exact mistake happened once
+# already, and it cost a debugging session.
+if ! grep -qE "^${VAR}=" "$ENV_FILE"; then
+  echo "error: $VAR is not a config line in .env.local" >&2
+  echo "       (commented-out examples are skipped on purpose)" >&2
   exit 1
 fi
 
@@ -80,24 +85,25 @@ echo "saved $VAR (length $LEN)"
 case "$VAR" in
   GEMINI_API_KEY)
     if [ "$LEN" -lt 30 ]; then
-      echo "  WARNING: shorter than a normal Gemini key (usually ~39 chars starting AIza)."
+      echo "  WARNING: shorter than a normal Gemini key (usually 39-53 chars)."
       echo "           Most likely truncated - re-copy it from the Google console."
     fi
     case "$CLEAN" in
-      AIza*) echo "  format: looks like a Gemini key." ;;
-      *)      echo "  WARNING: does not start with AIza - check you copied the API key, not the project id." ;;
+      AQ.*|AIza*) echo "  format: looks like a Gemini key." ;;
+      *)           echo "  WARNING: does not start with AQ. or AIza - check you copied the API key, not the project id." ;;
     esac
     ;;
   LANGSMITH_API_KEY)
-    if [ "$LEN" -lt 65 ]; then
-      echo "  WARNING: a full LangSmith key is ~72 chars (lsv2_pt_<32>_<32>)."
-      echo "           $LEN chars means it is TRUNCATED - a truncated key returns HTTP 403,"
-      echo "           which is indistinguishable from a permissions error."
+    if [ "$LEN" -lt 45 ]; then
+      echo "  WARNING: a LangSmith key is ~51 chars (lsv2_pt_...)."
+      echo "           $LEN chars is short - re-copy it."
     fi
     case "$CLEAN" in
       lsv2_*) echo "  format: looks like a LangSmith key." ;;
       *)       echo "  WARNING: does not start with lsv2_ - check you copied the whole key." ;;
     esac
+    echo "  note: a 403 from datasets/runs is usually the REGION, not the key."
+    echo "        check LANGSMITH_API_URL in .env.local (US vs EU)."
     ;;
   *)
     echo "  (no format check for this variable)"

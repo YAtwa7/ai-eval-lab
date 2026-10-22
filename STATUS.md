@@ -34,17 +34,28 @@ read yet, so there is nothing to unlearn.
 
 - **S-001** - C1 Module 0-1 (observability, tracing, analyzing your agent).
   Produces `apps/agent_service/` skeleton + `labs/01-tracing/`.
-- **Credentials not yet provisioned.** The next step, before S-001 needs
-  them: `cp .env.example .env.local`, then put **one** provider key in it.
-  `GEMINI_API_KEY` from https://aistudio.google.com/apikey (free tier, no
-  card) is the recommended one; Groq and OpenRouter are fallbacks, Ollama
-  needs no key. `.env.example` is the map of which key goes where and which
-  session needs it. The venv is not built yet either:
-  `python3 -m venv .venv && .venv/bin/pip install -r requirements.txt`.
-- **LangSmith account.** C1's platform exercises need a free LangSmith
-  account (Developer tier, 5k traces/mo). Sign up at
-  https://smith.langchain.com and take the key from Settings -> API tokens.
-- **Phoenix not yet installed.** C2's labs need `arize-phoenix` running
+- **Credentials are provisioned and verified.** `verify.py` passes end to
+  end: a live Gemini `generateContent` (HTTP 200, real reply) and live
+  LangSmith read + write against the **EU** endpoint
+  `https://eu.api.smith.langchain.com`. Two things worth knowing before
+  S-001:
+  - The **Gemini free tier returns transient HTTP 503 "high demand"** - it
+    took two retries to get a 200. Any provider call in the harness must
+    retry on 503/429, or the eval suite will be flaky for a reason that has
+    nothing to do with the thing under test.
+  - `gemini-2.5-flash` is **no longer available to new accounts**;
+    `gemini-3.8-flash` is the working default, `gemini-flash-latest` the
+    alias fallback.
+- **The LangSmith account is on the EU region.** Service-level calls
+  (`/info`) succeed against either host, but every tenant-scoped call
+  returns 403 on the US host - which reads exactly like a permissions
+  problem. `LANGSMITH_API_URL` is set in `.env.local`.
+- **`langchain-community` is pinned to 0.3.31** in `requirements.txt` on
+  purpose: 0.4.x removed `chat_models.vertexai`, which `ragas` imports at
+  module load, so `import ragas` breaks. Do not bump it without a
+  clean-venv import check.
+- **The venv is built** at `.venv` with the full pinned set.
+- **Phoenix not yet started.** C2's labs need `arize-phoenix` running
   locally (`phoenix serve`); it is 100% free to self-host and needs no key.
 - **Screening call notes not yet recorded.** If the user shares what the
   Ghaia.ai screener actually asked, re-tune the C1/C2 emphasis and pre-write
