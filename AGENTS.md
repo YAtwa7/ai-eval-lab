@@ -13,7 +13,8 @@ repo first — `README.md` is the entry point.
 4. `docs/sessions/` — read the highest-numbered `S-*.md`; **that file is your
    handoff**
 5. `docs/SESSION-PROMPT.md` — the session protocol
-6. `git log --oneline -10`
+6. `docs/STUDY-PROTOCOL.md` — the whole program, if you need the full picture
+7. `git log --oneline -10`
 
 Then search cross-session memory (below) before non-trivial work.
 
@@ -50,6 +51,7 @@ This repo is a **study lab**: one chat per session, state in the repo.
 | Judge calibration method | `docs/JUDGE-CALIBRATION.md` |
 | Reviewer brief (criteria) | `docs/PROVER.md` |
 | Session protocol + paste-in bootstrap | `docs/SESSION-PROMPT.md` |
+| The whole program in one paste-able block | `docs/STUDY-PROTOCOL.md` |
 | Session handoff template | `docs/sessions/README.md` |
 | Versioning rule | `docs/versioning-convention.md` |
 | Release history | `CHANGELOG.md` (+ git tags `vX.Y.Z`) |

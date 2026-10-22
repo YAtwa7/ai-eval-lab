@@ -8,6 +8,9 @@
 > [`docs/COURSE-MAP.md`](docs/COURSE-MAP.md).
 
 **Legend** — `[ ]` planned · `[~]` in progress · `[x]` complete
+**Builder** — who writes the code this session: `tutor` (built with the
+tutor, you direct) · `you` (you build, the tutor coaches and reviews) ·
+`both` (read + quiz together, build in the session)
 
 ---
 
@@ -25,27 +28,27 @@
 
 ### C1 — LangChain Academy, *Building Reliable Agents with LangSmith*
 
-- [ ] **S-001** · C1 M0-1 · Observability, tracing, analyzing your agent → `labs/01-tracing/`
-- [ ] **S-002** · C1 M2 · Evaluating agents: datasets, experiments, code-based / LLM-as-judge / pairwise → `labs/02-golden-dataset/`, `labs/03-judge/`
-- [ ] **S-003** · C1 M3 · Moving to production: insights agent, online evals, automations → `labs/08-ci-gate/`
+- [ ] **S-001** · `both` · C1 M0-1 · Observability, tracing, analyzing your agent → `labs/01-tracing/`
+- [ ] **S-002** · `both` · C1 M2 · Evaluating agents: datasets, experiments, code-based / LLM-as-judge / pairwise → `labs/02-golden-dataset/`, `labs/03-judge/`
+- [ ] **S-003** · `both` · C1 M3 · Moving to production: insights agent, online evals, automations → `labs/08-ci-gate/`
 
 ### C2 — DeepLearning.AI, *Evaluating AI Agents*
 
-- [ ] **S-004** · C2 L1 · Evaluation in the time of LLMs, decomposing agents, building the agent → `apps/agent_service/`
-- [ ] **S-005** · C2 L2-3 · Tracing your agent, router and skill evaluations → `labs/01-tracing/`, `labs/04-component-evals/`
-- [ ] **S-006** · C2 L4-5 · Trajectory evaluations, convergence score, structured experiments → `labs/05-trajectory-evals/`
-- [ ] **S-007** · C2 L6+ · Improving your LLM-as-judge, monitoring agents, graded assignment → `labs/02-golden-dataset/`, `labs/03-judge/`, `docs/CERTIFICATES.md`
+- [ ] **S-004** · `tutor` · C2 L1 · Evaluation in the time of LLMs, decomposing agents, building the agent → `apps/agent_service/`
+- [ ] **S-005** · `tutor` · C2 L2-3 · Tracing your agent, router and skill evaluations → `labs/01-tracing/`, `labs/04-component-evals/`
+- [ ] **S-006** · `tutor` · C2 L4-5 · Trajectory evaluations, convergence score, structured experiments → `labs/05-trajectory-evals/`
+- [ ] **S-007** · `tutor` · C2 L6+ · Improving your LLM-as-judge, monitoring agents, graded assignment → `labs/02-golden-dataset/`, `labs/03-judge/`, `docs/CERTIFICATES.md`
 
 ### C3 — LangChain Academy, *Intro to Agent Observability & Evaluations*
 
-- [ ] **S-008** · C3 M1-2 · Tracing, datasets, evaluators, experiments (fast pass — C1 covered the core) → consolidation notes
-- [ ] **S-009** · C3 M3-5 · Prompt Hub, human feedback + annotation queues, production observability → `labs/09-monitoring/`
+- [ ] **S-008** · `both` · C3 M1-2 · Tracing, datasets, evaluators, experiments (fast pass — C1 covered the core) → consolidation notes
+- [ ] **S-009** · `both` · C3 M3-5 · Prompt Hub, human feedback + annotation queues, production observability → `labs/09-monitoring/`
 
 ### Standalone labs — the differentiating work
 
-- [ ] **S-010** · Judge calibration · 100 human labels, agreement %, threshold from data → `labs/06-judge-calibration/`
-- [ ] **S-011** · Bilingual EN/AR + RTL · Arabic golden set, RTL render checks, Arabic safety classes → `labs/07-bilingual-rtl/`
-- [ ] **S-012** · Red team + interview readiness · injection / tenant-leak / hallucination, final CI gate, the five rehearsed answers → `labs/08-ci-gate/`
+- [ ] **S-010** · `you` · Judge calibration · 100 human labels, agreement %, threshold from data → `labs/06-judge-calibration/`
+- [ ] **S-011** · `you` · Bilingual EN/AR + RTL · Arabic golden set, RTL render checks, Arabic safety classes → `labs/07-bilingual-rtl/`
+- [ ] **S-012** · `you` · Red team + interview readiness · injection / tenant-leak / hallucination, final CI gate, the five rehearsed answers → `labs/08-ci-gate/`
 
 ---
 

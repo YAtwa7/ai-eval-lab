@@ -48,9 +48,11 @@ a recorded negative control.
 - **Observed progress:** `scripts/progress.sh` prints courses, sessions, the
   next session, labs started, and negative-control coverage from the files.
 - **The session protocol:** `docs/SESSION-PROMPT.md` (the paste-into-a-new-
-  chat bootstrap), `docs/sessions/README.md` (the handoff template and the
-  session index), `STATUS.md` (one screen, rewritten every session),
-  `CURRICULUM.md` (the checkbox progress bar).
+  chat bootstrap), `docs/STUDY-PROTOCOL.md` (the whole program in one
+  paste-able block, for handing to a cold chat), `docs/sessions/README.md`
+  (the handoff template and the session index), `STATUS.md` (one screen,
+  rewritten every session), `CURRICULUM.md` (the checkbox progress bar,
+  with a builder column marking who writes the code in each session).
 - **The course map:** `docs/COURSE-MAP.md` — the three courses with links,
   durations, module-to-lab mapping, certificate mechanics, and the LCAE
   credential on top, plus runners-up and certificate caveats.

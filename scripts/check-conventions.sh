@@ -161,7 +161,7 @@ for required in \
   CURRICULUM.md STATUS.md \
   docs/ARCHITECTURE.md docs/ROADMAP.md docs/PROVER.md docs/COURSE-MAP.md \
   docs/EVAL-STRATEGY.md docs/JUDGE-CALIBRATION.md docs/CERTIFICATES.md \
-  docs/SESSION-PROMPT.md docs/versioning-convention.md \
+  docs/SESSION-PROMPT.md docs/STUDY-PROTOCOL.md docs/versioning-convention.md \
   docs/sessions/README.md \
   scripts/bump.sh scripts/session-check.sh scripts/session-selftest.sh scripts/progress.sh
 do

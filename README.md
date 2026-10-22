@@ -50,12 +50,18 @@ with a hard limit, not a container for state. So:
 - The previous session's **handoff** is how a cold chat resumes.
 
 The gate enforces it: session numbers must be contiguous, every handoff must
-carry all required sections, and `STATUS.md` must name the next session.
+carry all required sections, and `STATUS.md` must name the next session. A
+second script proves those rules can still fail, by mutating a scratch copy
+of the repo once per rule.
 
 ```sh
 scripts/progress.sh          # observed progress across courses, sessions, labs
 scripts/check-conventions.sh # the gate - run it before every PR
 ```
+
+**Handing the program to a fresh chat:** paste
+[`docs/STUDY-PROTOCOL.md`](docs/STUDY-PROTOCOL.md) — it is self-contained
+and explains the structure, the rules, and how progress moves.
 
 ## Layout
 
@@ -99,6 +105,7 @@ program is the $99 LangChain Certified Agent Engineer exam.
 | [`STATUS.md`](STATUS.md) | Where we stand — rewritten every session |
 | [`CURRICULUM.md`](CURRICULUM.md) | Courses, sessions, labs, and their checkboxes |
 | [`docs/SESSION-PROMPT.md`](docs/SESSION-PROMPT.md) | The bootstrap for every new session chat |
+| [`docs/STUDY-PROTOCOL.md`](docs/STUDY-PROTOCOL.md) | The whole program in one paste-able block — hand this to a cold chat |
 | [`docs/sessions/README.md`](docs/sessions/README.md) | The handoff template and session index |
 | [`docs/COURSE-MAP.md`](docs/COURSE-MAP.md) | The three courses, verified links, certificate mechanics |
 | [`docs/EVAL-STRATEGY.md`](docs/EVAL-STRATEGY.md) | How to choose a metric, set a threshold, design a judge |
