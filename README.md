@@ -86,9 +86,18 @@ cp .env.example .env.local     # add your keys here; never commit it
 Requires Python 3.13. The eval frameworks are pinned and all declare 3.13
 support.
 
-**Provider keys.** Gemini free tier is the default generator and judge;
-Groq and OpenRouter free models are fallbacks; Ollama covers the offline
-case. One provider interface, no vendor lock-in. See `.env.example`.
+**Credentials.** [`.env.example`](.env.example) is the single place that
+says which key goes where, where to get it, and which session needs it. The
+short version: you need **one** model provider key to start — `GEMINI_API_KEY`
+(free tier, no card) is the recommended one. LangSmith is needed by S-001
+(free Developer tier); Phoenix and Langfuse are self-hosted and need no key
+at all.
+
+The reason there are several providers rather than one: **the judge should
+not be the same model as the generator.** Self-preference bias inflates
+scores, and being able to point the judge at a different provider is the
+cheapest defense. Set Gemini for generation and Groq (or OpenRouter) for
+judging, and say so in your write-up.
 
 ## Cost
 

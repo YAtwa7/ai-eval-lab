@@ -34,13 +34,18 @@ read yet, so there is nothing to unlearn.
 
 - **S-001** - C1 Module 0-1 (observability, tracing, analyzing your agent).
   Produces `apps/agent_service/` skeleton + `labs/01-tracing/`.
-- **Credentials not yet provisioned.** `.env.local` needs a Gemini API key
-  (free tier) before any LLM-as-judge work in S-002. Ragas/DeepEval installs
-  are pinned but the venv is not built yet.
+- **Credentials not yet provisioned.** The next step, before S-001 needs
+  them: `cp .env.example .env.local`, then put **one** provider key in it.
+  `GEMINI_API_KEY` from https://aistudio.google.com/apikey (free tier, no
+  card) is the recommended one; Groq and OpenRouter are fallbacks, Ollama
+  needs no key. `.env.example` is the map of which key goes where and which
+  session needs it. The venv is not built yet either:
+  `python3 -m venv .venv && .venv/bin/pip install -r requirements.txt`.
 - **LangSmith account.** C1's platform exercises need a free LangSmith
-  account (Developer tier, 5k traces/mo). Sign-up not yet done.
+  account (Developer tier, 5k traces/mo). Sign up at
+  https://smith.langchain.com and take the key from Settings -> API tokens.
 - **Phoenix not yet installed.** C2's labs need `arize-phoenix` running
-  locally (`phoenix serve`); it is 100% free to self-host.
+  locally (`phoenix serve`); it is 100% free to self-host and needs no key.
 - **Screening call notes not yet recorded.** If the user shares what the
   Ghaia.ai screener actually asked, re-tune the C1/C2 emphasis and pre-write
   `docs/interview/Q&A.md` against their questions rather than the written JD.
